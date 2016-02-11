@@ -1,0 +1,34 @@
+Nouns and verbs together
+Let's go back to the analogy of computer languages being like regular spoken languages. In English, you have nouns (which you can think of as "things") and verbs (which you can think of as "actions"). Until now, our nouns (data, such as numbers, strings, or variables) and verbs (functions) have been separate.
+
+No longer!
+
+Using objects, we can put our information and the functions that use that information in the same place.
+
+You can also think of objects as combinations of key-value pairs (like arrays), only their keys don't have to be numbers like 0, 1, or 2: they can be strings and variables.
+
+
+Creating a new object
+Great work! You just created your very first object.
+
+There are two ways to create an object: using object literal notation (which is what you just did) and using the object constructor.
+
+Literal notation is just creating an object with curly braces, like this:
+
+var myObj = {
+    type: 'fancy',
+    disposition: 'sunny'
+};
+
+var emptyObj = {};
+When you use the constructor, the syntax looks like this:
+
+var myObj = new Object();
+This tells JavaScript: "I want you to make me a new thing, and I want that thing to be an Object.
+
+You can add keys to your object after you've created it in two ways:
+
+myObj["name"] = "Charlie";
+myObj.name = "Charlie";
+Both are correct, and the second is shorthand for the first. See how this is sort of similar to arrays?
+
