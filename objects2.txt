@@ -1,0 +1,63 @@
+The method we've used to create objects uses object literal notation—that is, creating a new object with { } and defining properties within the brackets.
+
+Another way of creating objects without using the curly brackets { } is to use the keyword new. This is known as creating an object using a constructor.
+
+The new keyword creates an empty object when followed by Object(). The general syntax is:
+
+var objectName = new Object();
+We then have to fill this object with properties and labels. How do we do that? Check out the creation of the object bob to see what we do. We create the name property for the object bob by using bob.name and assigning that to a value. Contrast this to how we define properties in lines 6-7 for the susan1 object.
+
+
+Methods serve several important purposes when it comes to objects.
+
+They can be used to change object property values. The method setAge on line 4 allows us to update bob.age.
+They can be used to make calculations based on object properties. Functions can only use parameters as an input, but methods can make calculations with object properties. For example, we can calculate the year bob was born based on his age with our getYearOfBirth method (line 8).
+
+
+The "this" Keyword
+Our setAge method works great for bob because it updates bob.age, but what if we want to use it for other people?
+
+It turns out we can make a method work for many objects using a new keyword, this. The keyword this acts as a placeholder, and will refer to whichever object called that method when the method is actually used.
+
+Let's look at the method setAge (line 2) to see how this works. By using the keyword this, setAge will change the age property of any object that calls it. Previously, we had a specific object bob instead of the keyword this. But that limited the use of the method to just bob.
+
+Then when we say bob.setAge = setAge; (line 9), it means whenever we type bob.setAge( ), this.age in the setAge method will refer to bob.age.
+
+
+var square = new Object();
+square.sideLength = 6;
+square.calcPerimeter = function() {
+  return this.sideLength * 4;
+};
+// help us define an area method here
+square.calcArea = function() {
+    return this.sideLength * this.sideLength;
+};
+var p = square.calcPerimeter();
+var a = square.calcArea();
+
+
+function Person(name,age) {
+  this.name = name;
+  this.age = age;
+}
+
+// Let's make bob and susan again, using our constructor
+var bob = new Person("Bob Smith", 30);
+var susan = new Person("Susan Jordan", 25);
+// help us make george, whose name is "George Washington" and age is 275
+var george = new Person("George Washington", 275);
+
+
+function Person(name,age) {
+  this.name = name;
+  this.age = age;
+  this.species = "Homo Sapiens";
+}
+
+var sally = new Person("Sally Bowles", 39);
+var holden = new Person("Holden Caulfield", 16);
+console.log("sally's species is " + sally.species + " and she is " + sally.age );
+console.log("holden's species is " + holden.species + " and he is " + holden.age );
+
+
